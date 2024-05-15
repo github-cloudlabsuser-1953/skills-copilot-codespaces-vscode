@@ -1,0 +1,30 @@
+# Create a GitHub action to email a report from a file at 6 a.m. daily.
+name: Email Report
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+
+jobs:
+  email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Email report
+        run: python email_report.py
+ 
+ The workflow will run at 6 a.m. daily and send an email report using the  email_report.py  script. 
+ Conclusion 
+ In this article, you learned how to send an email with Python using the  smtplib  library. You also learned how to use the SendGrid API to send emails from a Python application. 
+ You also learned how to deploy a Python application that sends an email using GitHub Actions. 
+ To learn more about SendGrid, you can visit the  official documentation. 
+ Happy coding! 
+ Peer Review Contributions by:  Lalithnarayan C
